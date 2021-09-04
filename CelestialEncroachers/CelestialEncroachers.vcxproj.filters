@@ -19,10 +19,16 @@
     <Filter Include="Source Files\Code\Utilities">
       <UniqueIdentifier>{fb768252-cd06-4fb9-8d72-4182cc358b7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Code\Player">
+      <UniqueIdentifier>{304e01cc-7ee4-4ad2-bf9b-b0b87bda4db2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Code\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="GrowingArray.h">
       <Filter>Source Files\Code\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Code\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

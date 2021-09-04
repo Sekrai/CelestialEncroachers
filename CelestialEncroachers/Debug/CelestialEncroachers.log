@@ -1,2 +1,20 @@
 ﻿  Main.cpp
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Main.cpp(16,123): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Main.cpp(16,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   CelestialEncroachers.vcxproj -> E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Debug\CelestialEncroachers.exe

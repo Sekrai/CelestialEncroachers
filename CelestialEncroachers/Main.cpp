@@ -1,16 +1,23 @@
-#include "SFML/Graphics.hpp"
+#include "Player.h"
 #include "SFML/Window.hpp"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1280, 1024), "Celestial Encroachers");
-	sf::CircleShape tempCircle(50);
-	tempCircle.setFillColor(sf::Color::Green);
+	sf::Clock deltaClock;
+	sf::Time deltaTime;
 
-	float tempSpeed = 2.f;
+	sf::Texture playerTexture;
+	if (!playerTexture.loadFromFile("Gfx/player.png"))
+	{
+	}
+
+	Player defender;
+	defender.Init(playerTexture, sf::Vector2f((window.getSize().x / 2) - (playerTexture.getSize().x / 2), window.getSize().y - playerTexture.getSize().y * 2), 250.f);
 
 	while (window.isOpen())
 	{
+		deltaTime = deltaClock.restart();
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -18,27 +25,14 @@ int main()
 				window.close();
 		}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) == true)
-		{
-			tempCircle.move(sf::Vector2f(-tempSpeed, 0));
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true)
-		{
-			tempCircle.move(sf::Vector2f(tempSpeed, 0));
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) == true)
-		{
-			tempCircle.move(sf::Vector2f(0, -tempSpeed));
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) == true)
-		{
-			tempCircle.move(sf::Vector2f(0, tempSpeed));
-		}
 
+		defender.Update(deltaTime.asSeconds());
 
 
 		window.clear();
-		window.draw(tempCircle);
+		
+		defender.Draw(window);
+
 		window.display();
 	}
 
