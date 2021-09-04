@@ -1,0 +1,2 @@
+C:\Users\Andre\source\repos\CelestialEncroachers\Debug\CelestialEncroachers.exe
+C:\Users\Andre\source\repos\CelestialEncroachers\Debug\CelestialEncroachers.pdb
