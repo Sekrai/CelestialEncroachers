@@ -13,10 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Code">
+      <UniqueIdentifier>{0c4960e2-5940-40e3-af2b-a9fef338ec0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Code\Utilities">
+      <UniqueIdentifier>{fb768252-cd06-4fb9-8d72-4182cc358b7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Code</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CommonMacros.h">
+      <Filter>Source Files\Code\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingArray.h">
+      <Filter>Source Files\Code\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
