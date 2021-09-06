@@ -1,7 +1,8 @@
 #ifndef PLAYER_HEADER
 #define PLAYER_HEADER
 
-#include "SFML/Graphics.hpp"
+#include "Bullet.h"
+
 
 class Player
 {
@@ -9,7 +10,7 @@ public:
 	Player();
 	~Player();
 
-	void Init(sf::Texture aTexture, sf::Vector2f aStartPos, float aSpeed, int someHealth = 3);
+	void Init(sf::Texture &aTexture, sf::Vector2f aStartPos, int aScreenWidth, float aSpeed, float anAttackDelay = 1.f, int someHealth = 3);
 	void Update(float aDeltaTime);
 	void Draw(sf::RenderWindow &aWindow);
 
@@ -18,8 +19,12 @@ public:
 
 	sf::Sprite &GetSprite();
 private:
+	int myScreenWidth;
+
 	float mySpeed;
 	int myHealth;
+	float myAttackTimer;
+	float myAttackDelay;
 
 	sf::Sprite mySprite;
 };

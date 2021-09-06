@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "SFML/Window.hpp"
+#include <iostream>
+#include "BulletManager.h"
 
 int main()
 {
@@ -10,10 +12,19 @@ int main()
 	sf::Texture playerTexture;
 	if (!playerTexture.loadFromFile("Gfx/player.png"))
 	{
+		std::cout << "Could not load player \n";
 	}
 
+	sf::Texture* bulletTexture = new sf::Texture();
+	if (!bulletTexture->loadFromFile("Gfx/shot1.png"))
+	{
+		std::cout << "Could not load bullet \n";
+	}
+
+	BulletManager::Init(bulletTexture);
+
 	Player defender;
-	defender.Init(playerTexture, sf::Vector2f((window.getSize().x / 2) - (playerTexture.getSize().x / 2), window.getSize().y - playerTexture.getSize().y * 2), 250.f);
+	defender.Init(playerTexture, sf::Vector2f((window.getSize().x / 2) - (playerTexture.getSize().x / 2), window.getSize().y - (playerTexture.getSize().y * 3)), window.getSize().x, 250.f);
 
 	while (window.isOpen())
 	{
@@ -27,10 +38,11 @@ int main()
 
 
 		defender.Update(deltaTime.asSeconds());
-
+		BulletManager::Update(deltaTime.asSeconds());
 
 		window.clear();
-		
+
+		BulletManager::Draw(window);
 		defender.Draw(window);
 
 		window.display();

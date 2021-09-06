@@ -22,6 +22,12 @@
     <Filter Include="Source Files\Code\Player">
       <UniqueIdentifier>{304e01cc-7ee4-4ad2-bf9b-b0b87bda4db2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Code\Bullet">
+      <UniqueIdentifier>{eb09cfaa-751e-4b0a-a8d6-13e0fb3db5bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Code\Bullet\BulletManager">
+      <UniqueIdentifier>{e599b992-8bab-4090-87d4-6a72e078d467}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -29,6 +35,12 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Code\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Code\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Source Files\Code\Bullet\BulletManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +52,12 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Source Files\Code\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files\Code\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Source Files\Code\Bullet\BulletManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
