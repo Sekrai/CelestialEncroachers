@@ -28,6 +28,15 @@
     <Filter Include="Source Files\Code\Bullet\BulletManager">
       <UniqueIdentifier>{e599b992-8bab-4090-87d4-6a72e078d467}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Code\Enemies">
+      <UniqueIdentifier>{bc628739-fe20-43a3-9223-cd316b124bd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Code\Enemies\EnemyManager">
+      <UniqueIdentifier>{6b4abd59-7a0b-4864-b2c8-e0705393be30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Code\App">
+      <UniqueIdentifier>{3d9a23aa-57f7-4287-947e-4b4071b8abe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -41,6 +50,15 @@
     </ClCompile>
     <ClCompile Include="BulletManager.cpp">
       <Filter>Source Files\Code\Bullet\BulletManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Source Files\Code\Enemies\EnemyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Code\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>Source Files\Code\App</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +76,15 @@
     </ClInclude>
     <ClInclude Include="BulletManager.h">
       <Filter>Source Files\Code\Bullet\BulletManager</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Source Files\Code\Enemies\EnemyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Source Files\Code\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Source Files\Code\App</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

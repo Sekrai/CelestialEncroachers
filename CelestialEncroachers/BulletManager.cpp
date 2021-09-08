@@ -5,6 +5,7 @@ sf::Texture *BulletManager::myBulletTexture;
 
 BulletManager::~BulletManager()
 {
+	SAFE_DELETE(myBulletTexture);
 }
 
 void BulletManager::Init(sf::Texture *aBulletTexture)

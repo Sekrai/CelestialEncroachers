@@ -1,4 +1,3 @@
 C:\Users\Andre\source\repos\CelestialEncroachers\Debug\CelestialEncroachers.exe
 C:\Users\Andre\source\repos\CelestialEncroachers\Debug\CelestialEncroachers.pdb
 E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Debug\CelestialEncroachers.exe
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Debug\CelestialEncroachers.pdb

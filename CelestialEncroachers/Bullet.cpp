@@ -28,9 +28,19 @@ bool Bullet::Update(float aDeltaTime)
 {
 	mySprite.move(myDirection * mySpeed * aDeltaTime);
 
-	if (mySprite.getPosition().y < myOutOfBounds)
+	if (myDirection.y > 0)
 	{
-		return false;
+		if (mySprite.getPosition().y > myOutOfBounds)
+		{
+			return false;
+		}
+	}
+	else if (myDirection.y < 0)
+	{
+		if (mySprite.getPosition().y < myOutOfBounds)
+		{
+			return false;
+		}
 	}
 
 	return true;

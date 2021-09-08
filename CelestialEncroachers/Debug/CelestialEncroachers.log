@@ -1,2 +1,29 @@
-﻿  Player.cpp
+﻿  Enemy.cpp
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Enemy.cpp(30,79): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Enemy.cpp(30,53): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Enemy.cpp(61,86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   CelestialEncroachers.vcxproj -> E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Debug\CelestialEncroachers.exe

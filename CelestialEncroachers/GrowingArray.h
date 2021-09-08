@@ -35,7 +35,7 @@ namespace CommonUtilites
 		__forceinline int Count() const;
 
 	private:
-		inline void ReSize(const int &aSize);
+		inline void ReSize(const unsigned int &aSize);
 
 		Type *myArray;
 		CountType myCurrentCount;
@@ -232,7 +232,7 @@ namespace CommonUtilites
 	}
 
 	template <class Type, class CountType>
-	void GrowingArray<Type, CountType>::ReSize(const int &aSize)
+	void GrowingArray<Type, CountType>::ReSize(const unsigned int &aSize)
 	{
 		Type *tempArray = new Type[aSize]();
 

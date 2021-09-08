@@ -30,14 +30,14 @@ void Player::Update(float aDeltaTime)
 {
 	myAttackTimer += aDeltaTime;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) == true)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		if (mySprite.getPosition().x > 0)													  //Put it as as seperate if to make sure it's not checking it when A is not held
 		{
 			mySprite.move(sf::Vector2f(-mySpeed * aDeltaTime, 0));
 		}
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true)
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		if (mySprite.getPosition().x < myScreenWidth)													  //Put it as as seperate if to make sure it's not checking it when D is not held
 		{
