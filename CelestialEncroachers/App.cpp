@@ -3,19 +3,49 @@
 #include <iostream>
 #include "BulletManager.h"
 #include "EnemyManager.h"
+#include "ScoreManager.h"
 
 App::App()
-:myWindow(sf::VideoMode(1280, 1024), "Celestial Encroachers")
+:myWindow(),
+myBackgroundTexture(),
+myBackground(),
+myBulletTexture(),
+myPlayer(),
+myPlayerTexture(),
+myDeltaClock(),
+myDeltaTime(),
+myEnemy1Texture(),
+myEnemy2Texture(),
+myEnemy3Texture(),
+myFont()
 {
 }
 
 App::~App()
 {
 	SAFE_DELETE(myBulletTexture);
+	SAFE_DELETE(myBackgroundTexture);
+	SAFE_DELETE(myEnemy1Texture);
+	SAFE_DELETE(myEnemy2Texture);
+	SAFE_DELETE(myEnemy3Texture);
+	SAFE_DELETE(myFont);
+	
 }
 
 void App::Init()
 {
+	myBackgroundTexture = new sf::Texture();
+	if (!myBackgroundTexture->loadFromFile("Gfx/background.png"))
+	{
+		std::cout << "Could not load background \n";
+	}
+
+	myBackground.setTexture(*myBackgroundTexture);
+	myBackground.setPosition(sf::Vector2f(0, 0));
+
+	myWindow.create(sf::VideoMode(myBackgroundTexture->getSize().x, myBackgroundTexture->getSize().y), "Celestial Encroachers");
+
+	srand(time(NULL));
 
 	if (!myPlayerTexture.loadFromFile("Gfx/player.png"))
 	{
@@ -31,27 +61,34 @@ void App::Init()
 	myEnemy1Texture = new sf::Texture();
 	if (!myEnemy1Texture->loadFromFile("Gfx/enemy1.png"))
 	{
-		std::cout << "Could not load bullet \n";
+		std::cout << "Could not load Enemy \n";
+	}
+
+	myEnemy2Texture = new sf::Texture();
+	if (!myEnemy2Texture->loadFromFile("Gfx/enemy2.png"))
+	{
+		std::cout << "Could not load Enemy2 \n";
+	}
+
+	myEnemy3Texture = new sf::Texture();
+	if (!myEnemy3Texture->loadFromFile("Gfx/enemy3.png"))
+	{
+		std::cout << "Could not load Enemy3 \n";
+	}
+
+	myFont = new sf::Font();
+	if (!myFont->loadFromFile("Gfx/BitBold.ttf"))
+	{
+		std::cout << "Could not load font\n";
 	}
 
 	BulletManager::Init(myBulletTexture);
-	EnemyManager::Init(myEnemy1Texture, myWindow.getSize());
+	EnemyManager::Init( myWindow.getSize());
+	ScoreManager::Init(myWindow.getSize(), myFont);
 	
 	myPlayer.Init(myPlayerTexture, sf::Vector2f((myWindow.getSize().x / 2) - (myPlayerTexture.getSize().x / 2), myWindow.getSize().y - (myPlayerTexture.getSize().y * 3)), myWindow.getSize().x, 250.f);
 
-	sf::Vector2f tempEnemyStartPos(myEnemy1Texture->getSize().x, myEnemy1Texture->getSize().y);
-	float tempOffset = myBulletTexture->getSize().x * 2;
-
-	for (int x = 0; x < 10; x++)
-	{
-		for (int y = 0; y < 5; y++)
-		{
-			EnemyManager::AddEnemy(tempEnemyStartPos);
-			tempEnemyStartPos.y += myEnemy1Texture->getSize().y + tempOffset;
-		}
-		tempEnemyStartPos.x += myEnemy1Texture->getSize().x + tempOffset;
-		tempEnemyStartPos.y = myEnemy1Texture->getSize().y;
-	}
+	SpawnEnemies();
 }
 
 void App::Run()
@@ -79,11 +116,43 @@ void App::Run()
 		EnemyManager::Update(myDeltaTime);
 
 		myWindow.clear();
+		myWindow.draw(myBackground);
 
 		BulletManager::Draw(myWindow);
 		EnemyManager::Draw(myWindow);
+		ScoreManager::Draw(myWindow);
 		myPlayer.Draw(myWindow);
 
 		myWindow.display();
+	}
+}
+
+void App::SpawnEnemies()
+{
+	sf::Vector2f tempMoveDistance(myEnemy1Texture->getSize().x / 4, myEnemy1Texture->getSize().y / 2);
+	sf::Vector2f tempEnemyStartPos(myEnemy1Texture->getSize().x, myEnemy1Texture->getSize().y);
+	float tempOffset = myBulletTexture->getSize().x * 2;
+	float tempMinAttackDelay = 5.f;
+
+	for (int x = 0; x < 10; x++)
+	{
+		for (int y = 0; y < 6; y++)
+		{
+			if (y < 2)
+			{
+				EnemyManager::AddEnemy(myEnemy3Texture, tempEnemyStartPos, tempMoveDistance, 3, 3, tempMinAttackDelay + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/ 7.5f)));
+			}
+			else if (y < 4)
+			{
+				EnemyManager::AddEnemy(myEnemy2Texture, tempEnemyStartPos, tempMoveDistance, 2, 2, tempMinAttackDelay + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / 10.f)));
+			}
+			else
+			{
+				EnemyManager::AddEnemy(myEnemy1Texture, tempEnemyStartPos, tempMoveDistance, 1, 1, tempMinAttackDelay + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / 15.f)));
+			}
+			tempEnemyStartPos.y += myEnemy1Texture->getSize().y + tempOffset;
+		}
+		tempEnemyStartPos.x += myEnemy1Texture->getSize().x + tempOffset;
+		tempEnemyStartPos.y = myEnemy1Texture->getSize().y;
 	}
 }

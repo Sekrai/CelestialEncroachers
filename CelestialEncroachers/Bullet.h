@@ -14,6 +14,8 @@ public:
 	void Draw(sf::RenderWindow& aWindow);
 
 	sf::FloatRect GetCollisionBox();
+
+	bool CheckOwner();
 private:
 	int myOutOfBounds;
 

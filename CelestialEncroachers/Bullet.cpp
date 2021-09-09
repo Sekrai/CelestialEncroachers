@@ -55,3 +55,12 @@ sf::FloatRect Bullet::GetCollisionBox()
 {
 	return mySprite.getGlobalBounds();
 }
+
+bool Bullet::CheckOwner()
+{
+	if (myDirection.y > 0)
+	{
+		return true;										  //Returns True for Enemy
+	}
+	return false;											  //Returns False for Player
+}

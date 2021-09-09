@@ -1,19 +1,20 @@
 #include "EnemyManager.h"
+#include "ScoreManager.h"
 
-sf::Vector2u EnemyManager::myScroundBounds;
+sf::Vector2u EnemyManager::myScreenBounds;
 CU::GrowingArray<Enemy> EnemyManager::myEnemies;
-sf::Texture* EnemyManager::myEnemyTexture;
+
 
 EnemyManager::~EnemyManager()
 {
-	SAFE_DELETE(myEnemyTexture);
+
 }
 
-void EnemyManager::Init(sf::Texture* anEnemyTexture, sf::Vector2u someScroundBounds)
+void EnemyManager::Init(sf::Vector2u someScreenBounds)
 {
 	myEnemies.Init(10);
-	myEnemyTexture = anEnemyTexture;
-	myScroundBounds = someScroundBounds;
+
+	myScreenBounds = someScreenBounds;
 }
 
 void EnemyManager::Update(float aDeltaTime)
@@ -26,6 +27,8 @@ void EnemyManager::Update(float aDeltaTime)
 			{
 				myEnemies[j].MoveDown();
 			}
+
+			//myEnemies[i].SpeedUp();														 //Speeds up when changing direction, based on original game
 			break;
 		}
 	}
@@ -44,10 +47,11 @@ void EnemyManager::AddEnemy(Enemy& anEnemy)
 	myEnemies.Add(anEnemy);
 }
 
-void EnemyManager::AddEnemy(sf::Vector2f aStartPos, float aMoveDelay, float aDelayRecution, sf::Vector2f aDirection)
+void EnemyManager::AddEnemy(sf::Texture* anEnemyTexture, sf::Vector2f aStartPos, sf::Vector2f aMoveDistance, int someHealth, int someScoreWorth, float anAttackDelay, float aMoveDelay, float aDelayRecution, sf::Vector2f aDirection)
 {
 	Enemy tempEnemy;
-	tempEnemy.Init(*myEnemyTexture, aStartPos, myScroundBounds, aMoveDelay, aDelayRecution, aDirection);
+
+	tempEnemy.Init(*anEnemyTexture, aStartPos, aMoveDistance, myScreenBounds, anAttackDelay, aMoveDelay, aDelayRecution, aDirection, someHealth, someScoreWorth);
 	myEnemies.Add(tempEnemy);
 }
 
@@ -60,6 +64,8 @@ bool EnemyManager::CheckCollision(const sf::FloatRect& aCollisionBox)
 			myEnemies[i].Damage();
 			if (myEnemies[i].GetHealth() <= 0)
 			{
+				myEnemies[i].SpeedUp();
+				ScoreManager::AddScore(myEnemies[i].GetScoreWorth());
 				myEnemies.RemoveAt(i);
 			}
 

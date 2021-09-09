@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Code\App">
       <UniqueIdentifier>{3d9a23aa-57f7-4287-947e-4b4071b8abe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Code\ScoreManager">
+      <UniqueIdentifier>{5f06606e-59fd-44eb-9ffb-f8d81ccb50d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="App.cpp">
       <Filter>Source Files\Code\App</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>Source Files\Code\ScoreManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="App.h">
       <Filter>Source Files\Code\App</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>Source Files\Code\ScoreManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

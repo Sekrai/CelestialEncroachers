@@ -19,11 +19,14 @@ void BulletManager::Update(float aDeltaTime)
 {
 	for (int i = 0; i < myBullets.Count(); i++)
 	{
-		if (EnemyManager::CheckCollision(myBullets[i].GetCollisionBox()) == true)
+		if (myBullets[i].CheckOwner() == false)
 		{
-			myBullets.RemoveAt(i);
-			i--;
-			continue;
+			if (EnemyManager::CheckCollision(myBullets[i].GetCollisionBox()) == true)
+			{
+				myBullets.RemoveAt(i);
+				i--;
+				continue;
+			}
 		}
 
 		if (myBullets[i].Update(aDeltaTime) == false)
