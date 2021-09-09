@@ -15,6 +15,8 @@ public:
 
 	static void AddEnemy(Enemy& anEnemy);
 	static void AddEnemy(sf::Vector2f aStartPos, float aMoveDelay = 1.f, float aDelayRecution = 0.1f, sf::Vector2f aDirection = sf::Vector2f(1, 0));
+
+	static bool CheckCollision(const sf::FloatRect& aCollisionBox);
 private:
 	EnemyManager() {};
 

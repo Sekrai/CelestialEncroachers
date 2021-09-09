@@ -13,6 +13,7 @@ public:
 	bool Update(float aDeltaTime);
 	void Draw(sf::RenderWindow& aWindow);
 
+	sf::FloatRect GetCollisionBox();
 private:
 	int myOutOfBounds;
 

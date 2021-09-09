@@ -75,3 +75,8 @@ sf::Sprite& Player::GetSprite()
 {
 	return mySprite;
 }
+
+const sf::FloatRect& Player::GetCollisionBox()
+{
+	return mySprite.getGlobalBounds();
+}

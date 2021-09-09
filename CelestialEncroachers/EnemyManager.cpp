@@ -50,3 +50,21 @@ void EnemyManager::AddEnemy(sf::Vector2f aStartPos, float aMoveDelay, float aDel
 	tempEnemy.Init(*myEnemyTexture, aStartPos, myScroundBounds, aMoveDelay, aDelayRecution, aDirection);
 	myEnemies.Add(tempEnemy);
 }
+
+bool EnemyManager::CheckCollision(const sf::FloatRect& aCollisionBox)
+{
+	for (int i = 0; i < myEnemies.Count(); i++)
+	{
+		if (myEnemies[i].GetCollisionBox().intersects(aCollisionBox))
+		{
+			myEnemies[i].Damage();
+			if (myEnemies[i].GetHealth() <= 0)
+			{
+				myEnemies.RemoveAt(i);
+			}
+
+			return true;
+		}
+	}
+	return false;
+}

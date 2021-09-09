@@ -17,12 +17,13 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::Init(sf::Texture& aTexture, sf::Vector2f aStartPos, sf::Vector2u someScreenBounds, float aMoveDelay, float aDelayReduction, sf::Vector2f aDirection)
+void Enemy::Init(sf::Texture& aTexture, sf::Vector2f aStartPos, sf::Vector2u someScreenBounds, float aMoveDelay, float aDelayReduction, sf::Vector2f aDirection, int someHealth)
 {
 	myMoveDelay = aMoveDelay;
 	myDelayReduction = aDelayReduction;
 	myDirection = aDirection;
 	myScroundBounds = someScreenBounds;
+	myHealth = someHealth;
 
 	mySprite.setTexture(aTexture);
 	mySprite.setPosition(aStartPos);
@@ -44,7 +45,6 @@ bool Enemy::Update(float aDeltaTime)
 		myMoveTimer = 0;
 		mySprite.move(myDirection * myMoveDistance.x);
 	}
-
 	
 
 	return true;
@@ -66,4 +66,19 @@ void Enemy::MoveDown()
 	}
 
 	/*std::cout << "Enemy Pos: " << mySprite.getPosition().x << " " << mySprite.getPosition().y << "\n";*/
+}
+
+const sf::FloatRect& Enemy::GetCollisionBox()
+{
+	return mySprite.getGlobalBounds();
+}
+
+void Enemy::Damage(int someDamage)
+{
+	myHealth -= someDamage;
+}
+
+int Enemy::GetHealth()
+{
+	return myHealth;
 }

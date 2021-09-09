@@ -50,3 +50,8 @@ void Bullet::Draw(sf::RenderWindow& aWindow)
 {
 	aWindow.draw(mySprite);
 }
+
+sf::FloatRect Bullet::GetCollisionBox()
+{
+	return mySprite.getGlobalBounds();
+}

@@ -18,6 +18,8 @@ public:
 	void SetHealth(const int &someHealth);
 
 	sf::Sprite &GetSprite();
+
+	const sf::FloatRect& GetCollisionBox();
 private:
 	int myScreenWidth;
 

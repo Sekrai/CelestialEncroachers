@@ -1,4 +1,5 @@
 #include "BulletManager.h"
+#include "EnemyManager.h"
 
 CU::GrowingArray<Bullet> BulletManager::myBullets;
 sf::Texture *BulletManager::myBulletTexture;
@@ -18,6 +19,13 @@ void BulletManager::Update(float aDeltaTime)
 {
 	for (int i = 0; i < myBullets.Count(); i++)
 	{
+		if (EnemyManager::CheckCollision(myBullets[i].GetCollisionBox()) == true)
+		{
+			myBullets.RemoveAt(i);
+			i--;
+			continue;
+		}
+
 		if (myBullets[i].Update(aDeltaTime) == false)
 		{
 			myBullets.RemoveAt(i);
