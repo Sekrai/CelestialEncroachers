@@ -14,14 +14,21 @@ public:
 	void Run();
 
 	void SpawnEnemies();
+	void GameOver();
 private:
 	sf::RenderWindow myWindow;
 	sf::Clock myDeltaClock;
 	float myDeltaTime;
 
+	float myEnemyMinAttackDelay;
+	float myEnemySpeedBonus;
+	int myEnemyScoreMod;
+	bool myGameOverFlag;
+
 	Player myPlayer;
 	sf::Sprite myBackground;
 
+	sf::Text myGameOverText;
 	sf::Font *myFont;
 	sf::Texture myPlayerTexture;
 	sf::Texture* myBackgroundTexture;

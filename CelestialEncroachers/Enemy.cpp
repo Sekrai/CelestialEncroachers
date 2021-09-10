@@ -70,14 +70,18 @@ void Enemy::Draw(sf::RenderWindow& aWindow)
 	aWindow.draw(mySprite);
 }
 
-void Enemy::MoveDown()
+bool Enemy::MoveDown()
 {
 	myDirection.x *= -1;
 	mySprite.move(sf::Vector2f(myDirection.x * 15.f, mySprite.getTexture()->getSize().y / 2));
 
-
+	if (mySprite.getPosition().y >= myScreenBounds.y - 133)
+	{
+		return false;
+	}
 
 	/*std::cout << "Enemy Pos: " << mySprite.getPosition().x << " " << mySprite.getPosition().y << "\n";*/
+	return true;
 }
 
 const sf::FloatRect& Enemy::GetCollisionBox()

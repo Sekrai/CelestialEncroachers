@@ -11,7 +11,7 @@ public:
 	~Player();
 
 	void Init(sf::Texture &aTexture, sf::Vector2f aStartPos, int aScreenWidth, float aSpeed, float anAttackDelay = 1.f, int someHealth = 3);
-	void Update(float aDeltaTime);
+	bool Update(float aDeltaTime);
 	void Draw(sf::RenderWindow &aWindow);
 
 	int GetHealth();
@@ -29,6 +29,9 @@ private:
 	float myAttackDelay;
 
 	sf::Sprite mySprite;
+	sf::Sprite myHealth1Sprite;
+	sf::Sprite myHealth2Sprite;
+	sf::Sprite myHealth3Sprite;
 };
 
 #endif

@@ -13,7 +13,7 @@ public:
 	bool Update(float aDeltaTime);
 	void Draw(sf::RenderWindow& aWindow);
 
-	void MoveDown();
+	bool MoveDown();
 
 	const sf::FloatRect& GetCollisionBox();
 

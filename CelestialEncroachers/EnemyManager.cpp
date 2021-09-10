@@ -17,7 +17,7 @@ void EnemyManager::Init(sf::Vector2u someScreenBounds)
 	myScreenBounds = someScreenBounds;
 }
 
-void EnemyManager::Update(float aDeltaTime)
+bool EnemyManager::Update(float aDeltaTime)
 {
 	for (int i = 0; i < myEnemies.Count(); i++)
 	{
@@ -25,13 +25,17 @@ void EnemyManager::Update(float aDeltaTime)
 		{
 			for (int j = 0; j < myEnemies.Count(); j++)
 			{
-				myEnemies[j].MoveDown();
+				if (myEnemies[j].MoveDown() == false)
+				{
+					return false;
+				}
 			}
 
 			//myEnemies[i].SpeedUp();														 //Speeds up when changing direction, based on original game
 			break;
 		}
 	}
+	return true;
 }
 
 void EnemyManager::Draw(sf::RenderWindow& aWindow)
@@ -73,4 +77,9 @@ bool EnemyManager::CheckCollision(const sf::FloatRect& aCollisionBox)
 		}
 	}
 	return false;
+}
+
+bool EnemyManager::EmptyCheck()
+{
+	return myEnemies.Count() <= 0;
 }

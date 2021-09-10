@@ -23,7 +23,7 @@ void ScoreManager::Init(sf::Vector2u someScreenBounds, sf::Font *aFont)
 	myText.setFont(*myFont);
 	myText.setCharacterSize(16);
 	myText.setFillColor(sf::Color::Green);
-	myText.setPosition(sf::Vector2f(24 , 10));
+	myText.setPosition(sf::Vector2f(24 , 22));
 
 
 	myStream << "Score: " << myScore;

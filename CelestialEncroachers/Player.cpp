@@ -2,12 +2,15 @@
 #include "BulletManager.h"
 
 Player::Player()
-	:mySprite(),
-	mySpeed(0),
-	myHealth(0),
-	myScreenWidth(0),
-	myAttackTimer(0),
-	myAttackDelay(0)
+:mySprite(),
+mySpeed(0),
+myHealth(0),
+myScreenWidth(0),
+myAttackTimer(0),
+myAttackDelay(0),
+myHealth1Sprite(),
+myHealth2Sprite(),
+myHealth3Sprite()
 {
 }
 
@@ -24,11 +27,33 @@ void Player::Init(sf::Texture &aTexture, sf::Vector2f aStartPos, int aScreenWidt
 	
 	mySprite.setTexture(aTexture);
 	mySprite.setPosition(aStartPos);
+
+	sf::Vector2f tempHealthPos(140, 10);
+	myHealth1Sprite.setTexture(aTexture);
+	myHealth1Sprite.setPosition(tempHealthPos);
+
+	tempHealthPos.x += aTexture.getSize().x + 10;
+	myHealth2Sprite.setTexture(aTexture);
+	myHealth2Sprite.setPosition(tempHealthPos);
+
+	tempHealthPos.x += aTexture.getSize().x + 10;
+	myHealth3Sprite.setTexture(aTexture);
+	myHealth3Sprite.setPosition(tempHealthPos);
 }
 
-void Player::Update(float aDeltaTime)
+bool Player::Update(float aDeltaTime)
 {
 	myAttackTimer += aDeltaTime;
+
+	if (BulletManager::CheckCollision(mySprite.getGlobalBounds()) == true)
+	{
+		myHealth--;
+
+		if (myHealth <= 0)
+		{
+			return false;
+		}
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
@@ -54,11 +79,26 @@ void Player::Update(float aDeltaTime)
 			BulletManager::AddBullet(mySprite.getPosition() + sf::Vector2f(mySprite.getLocalBounds().width / 2, 0));
 		}
 	}
+
+	return true;
 }
 
 void Player::Draw(sf::RenderWindow &aWindow)
 {
 	aWindow.draw(mySprite);
+
+	if (myHealth >= 1)
+	{
+		aWindow.draw(myHealth1Sprite);
+	}
+	if (myHealth >= 2)
+	{
+		aWindow.draw(myHealth2Sprite);
+	}
+	if (myHealth >= 3)
+	{
+		aWindow.draw(myHealth3Sprite);
+	}
 }
 
 int Player::GetHealth()

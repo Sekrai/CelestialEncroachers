@@ -15,6 +15,8 @@ public:
 
 	static void AddBullet(Bullet &aBullet);
 	static void AddBullet(sf::Vector2f aStartPos, float aSpeed = 350, sf::Vector2f aDirection = sf::Vector2f(0, -1), int anOutOfBounds = 0);
+
+	static bool CheckCollision(const sf::FloatRect& aCollisionBox);
 private:
 	BulletManager() {};
 
