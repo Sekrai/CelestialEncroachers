@@ -13,6 +13,7 @@ public:
 	static void AddScore(int someScore);
 	static void Draw(sf::RenderWindow& aWindow);
 
+	static void Reset();
 private:
 	ScoreManager() {};
 

@@ -14,14 +14,17 @@ public:
 	bool Update(float aDeltaTime);
 	void Draw(sf::RenderWindow &aWindow);
 
+	void Reset();
+
 	int GetHealth();
 	void SetHealth(const int &someHealth);
-
 	sf::Sprite &GetSprite();
-
 	const sf::FloatRect& GetCollisionBox();
+	bool GetHasAttacked();
 private:
 	int myScreenWidth;
+
+	bool myHasAttacked;
 
 	float mySpeed;
 	int myHealth;

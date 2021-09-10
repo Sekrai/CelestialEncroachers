@@ -2,15 +2,16 @@
 #include "BulletManager.h"
 
 Player::Player()
-:mySprite(),
-mySpeed(0),
-myHealth(0),
-myScreenWidth(0),
-myAttackTimer(0),
-myAttackDelay(0),
-myHealth1Sprite(),
-myHealth2Sprite(),
-myHealth3Sprite()
+	:mySprite(),
+	mySpeed(0),
+	myHealth(0),
+	myScreenWidth(0),
+	myAttackTimer(0),
+	myAttackDelay(0),
+	myHealth1Sprite(),
+	myHealth2Sprite(),
+	myHealth3Sprite(),
+	myHasAttacked(false)
 {
 }
 
@@ -18,13 +19,13 @@ Player::~Player()
 {
 }
 
-void Player::Init(sf::Texture &aTexture, sf::Vector2f aStartPos, int aScreenWidth, float aSpeed, float anAttackDelay, int someHealth)
+void Player::Init(sf::Texture& aTexture, sf::Vector2f aStartPos, int aScreenWidth, float aSpeed, float anAttackDelay, int someHealth)
 {
 	mySpeed = aSpeed;
 	myHealth = someHealth;
 	myAttackDelay = anAttackDelay;
 	myScreenWidth = aScreenWidth - aTexture.getSize().x;
-	
+
 	mySprite.setTexture(aTexture);
 	mySprite.setPosition(aStartPos);
 
@@ -75,6 +76,7 @@ bool Player::Update(float aDeltaTime)
 		if (myAttackTimer >= myAttackDelay)
 		{
 			myAttackTimer = 0;
+			myHasAttacked = true;
 
 			BulletManager::AddBullet(mySprite.getPosition() + sf::Vector2f(mySprite.getLocalBounds().width / 2, 0));
 		}
@@ -83,7 +85,7 @@ bool Player::Update(float aDeltaTime)
 	return true;
 }
 
-void Player::Draw(sf::RenderWindow &aWindow)
+void Player::Draw(sf::RenderWindow& aWindow)
 {
 	aWindow.draw(mySprite);
 
@@ -101,12 +103,19 @@ void Player::Draw(sf::RenderWindow &aWindow)
 	}
 }
 
+void Player::Reset()
+{
+	myHealth = 3;
+	mySprite.setPosition(sf::Vector2f((myScreenWidth / 2) - (mySprite.getGlobalBounds().width / 2), mySprite.getPosition().y));
+	myHasAttacked = false;
+}
+
 int Player::GetHealth()
 {
 	return myHealth;
 }
 
-void Player::SetHealth(const int &someHealth)
+void Player::SetHealth(const int& someHealth)
 {
 	myHealth = someHealth;
 }
@@ -119,4 +128,9 @@ sf::Sprite& Player::GetSprite()
 const sf::FloatRect& Player::GetCollisionBox()
 {
 	return mySprite.getGlobalBounds();
+}
+
+bool Player::GetHasAttacked()
+{
+	return myHasAttacked;
 }

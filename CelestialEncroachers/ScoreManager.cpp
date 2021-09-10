@@ -4,16 +4,16 @@
 
 sf::Vector2u ScoreManager::myScreenBounds;
 sf::Text ScoreManager::myText;
-sf::Font *ScoreManager::myFont;
+sf::Font* ScoreManager::myFont;
 int ScoreManager::myScore;
 std::stringstream ScoreManager::myStream;
 
 ScoreManager::~ScoreManager()
 {
-	
+
 }
 
-void ScoreManager::Init(sf::Vector2u someScreenBounds, sf::Font *aFont)
+void ScoreManager::Init(sf::Vector2u someScreenBounds, sf::Font* aFont)
 {
 	myScore = 0;
 	myScreenBounds = someScreenBounds;
@@ -23,7 +23,7 @@ void ScoreManager::Init(sf::Vector2u someScreenBounds, sf::Font *aFont)
 	myText.setFont(*myFont);
 	myText.setCharacterSize(16);
 	myText.setFillColor(sf::Color::Green);
-	myText.setPosition(sf::Vector2f(24 , 22));
+	myText.setPosition(sf::Vector2f(24, 22));
 
 
 	myStream << "Score: " << myScore;
@@ -42,4 +42,12 @@ void ScoreManager::AddScore(int someScore)
 void ScoreManager::Draw(sf::RenderWindow& aWindow)
 {
 	aWindow.draw(myText);
+}
+
+void ScoreManager::Reset()
+{
+	myScore = 0;
+	myStream.str("");
+	myStream << "Score: " << myScore;
+	myText.setString(myStream.str());
 }

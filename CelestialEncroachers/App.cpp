@@ -107,6 +107,14 @@ void App::Run()
 {
 	while (myWindow.isOpen())
 	{
+		if (myGameOverFlag == true)
+		{
+			if (myPlayer.GetHasAttacked() == true)
+			{
+				myGameOverFlag = false;
+			}
+		}
+
 		myDeltaTime = myDeltaClock.restart().asSeconds();
 		sf::Event event;
 		while (myWindow.pollEvent(event))
@@ -133,9 +141,12 @@ void App::Run()
 
 		BulletManager::Update(myDeltaTime);
 
-		if (EnemyManager::Update(myDeltaTime) == false)
+		if (myGameOverFlag == false)
 		{
-			GameOver();
+			if (EnemyManager::Update(myDeltaTime) == false)
+			{
+				GameOver();
+			}
 		}
 
 		if (myPlayer.Update(myDeltaTime) == false)
@@ -195,5 +206,14 @@ void App::GameOver()
 {
 	myGameOverFlag = true;
 
-	//TODO Add code for restarting
+	EnemyManager::Clear();
+	BulletManager::Clear();
+	ScoreManager::Reset();
+	myPlayer.Reset();
+
+	myEnemyMinAttackDelay = 5.f;
+	myEnemySpeedBonus = 1.f;
+	myEnemyScoreMod = 0;
+
+	SpawnEnemies();
 }

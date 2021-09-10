@@ -83,3 +83,8 @@ bool EnemyManager::EmptyCheck()
 {
 	return myEnemies.Count() <= 0;
 }
+
+void EnemyManager::Clear()
+{
+	myEnemies.RemoveAll();
+}

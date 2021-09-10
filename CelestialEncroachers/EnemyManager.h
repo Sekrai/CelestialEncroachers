@@ -18,6 +18,7 @@ public:
 
 	static bool CheckCollision(const sf::FloatRect& aCollisionBox);
 	static bool EmptyCheck();
+	static void Clear();
 private:
 	EnemyManager() {};
 

@@ -74,3 +74,8 @@ bool BulletManager::CheckCollision(const sf::FloatRect& aCollisionBox)
 	}
 	return false;
 }
+
+void BulletManager::Clear()
+{
+	myBullets.RemoveAll();
+}

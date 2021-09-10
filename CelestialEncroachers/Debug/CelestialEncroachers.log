@@ -36,7 +36,7 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(100,63): wa
           [
               T=float
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(165,95): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(176,95): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -45,7 +45,7 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(165,95): wa
           [
               T=float
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(165,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(176,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -54,7 +54,7 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(165,61): wa
           [
               T=float
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(168,92): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(179,92): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -63,7 +63,7 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(168,92): wa
           [
               T=float
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(168,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(179,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -72,12 +72,12 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(168,59): wa
           [
               T=float
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(169,19): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(180,19): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(190,54): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(201,54): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -86,7 +86,4 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(190,54): wa
           [
               T=float
           ]
-  BulletManager.cpp
-  EnemyManager.cpp
-  Generating Code...
   CelestialEncroachers.vcxproj -> E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Debug\CelestialEncroachers.exe
