@@ -1,6 +1,5 @@
-﻿  App.cpp
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(53,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(94,131): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+﻿  Enemy.cpp
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Enemy.cpp(77,86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -9,81 +8,5 @@ E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(94,131): wa
           [
               T=float
           ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(94,73): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(100,95): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(100,63): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(176,95): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(176,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(179,92): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(179,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(180,19): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\App.cpp(201,54): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
+E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Enemy.cpp(90): warning C4172: returning address of local variable or temporary
   CelestialEncroachers.vcxproj -> E:\Programs\GitHub\CelestialEncroachers\CelestialEncroachers\Debug\CelestialEncroachers.exe

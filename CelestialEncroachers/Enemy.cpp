@@ -72,6 +72,7 @@ void Enemy::Draw(sf::RenderWindow& aWindow)
 
 bool Enemy::MoveDown()
 {
+	myMoveTimer = 0;
 	myDirection.x *= -1;
 	mySprite.move(sf::Vector2f(myDirection.x * 15.f, mySprite.getTexture()->getSize().y / 2));
 
